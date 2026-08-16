@@ -1,0 +1,273 @@
+/* Theme variables */
+:root {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa7b2;
+  --accent: #00aaff;
+  --accent-2: #00d4ff;
+  --success: #34c759;
+  --danger: #ff4d4f;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max-width: 920px;
+  --gap: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(180deg, #04060a 0%, var(--bg) 100%);
+  color: #e6eef6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page container */
+.container {
+  max-width: var(--max-width);
+  margin: 48px auto;
+  padding: 24px;
+  width: calc(100% - 48px);
+}
+
+/* Header / title */
+.todo-list-title {
+  text-align: center;
+  margin: 12px 22px ;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--accent-2);
+  text-shadow: 0 3px 18px rgba(0, 212, 255, 0.06);
+}
+
+/* Card with subtle glass effect */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Input row */
+.todo-input-row {
+  display: grid;
+  grid-template-columns: 1fr 220px 120px;
+  gap: var(--gap);
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.todoinput, .dueDate {
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #e9f6ff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s;
+}
+.todoinput:focus, .dueDate:focus {
+  box-shadow: 0 6px 20px rgba(0,170,255,0.12);
+  border-color: rgba(0,170,255,0.28);
+  transform: translateY(-1px);
+}
+
+/* Add button */
+.add-todo-button {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #02151b;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,170,255,0.12);
+  border: none;
+  cursor: pointer;
+  transition: transform .12s ease, opacity .12s;
+}
+.add-todo-button:hover { transform: translateY(-3px); opacity: .98; }
+.add-todo-button:active { transform: translateY(0); }
+
+/* TODO rows container */
+#todoListOutput {
+  margin-top: 6px;
+}
+
+/* Each todo row */
+.todo-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 100px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.02);
+  transition: background .15s ease, transform .12s ease;
+}
+.todo-row:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+  transform: translateY(-3px);
+}
+
+/* Name and due date text */
+.todo-name {
+  font-size: 16px;
+  color: #eaf6ff;
+  word-break: break-word;
+}
+.todo-due {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Delete button */
+.delete-todo-button {
+  background: linear-gradient(90deg, rgba(255,77,79,1), rgba(255,100,110,1));
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .12s, box-shadow .12s, opacity .12s;
+}
+.delete-todo-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,77,79,0.14); }
+.delete-todo-button:active { transform: translateY(0); }
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.01);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
+  .todo-list-title {
+    font-size: 28px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .todo-input-row {
+    grid-template-columns: 1fr 200px 130px;
+    gap: 12px;
+  }
+  .todo-row {
+    grid-template-columns: 1fr 160px 110px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    width: calc(100% - 32px);
+    margin: 32px auto;
+  }
+  .todo-list-title {
+    font-size: 24px;
+    margin: 8px 16px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .todo-input-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .todoinput, .dueDate {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .add-todo-button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+  .todo-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    padding: 12px;
+  }
+  .todo-name {
+    font-size: 15px;
+  }
+  .todo-due {
+    font-size: 13px;
+    order: 2;
+  }
+  .delete-todo-button {
+    justify-self: end;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    width: calc(100% - 24px);
+    margin: 24px auto;
+  }
+  .todo-list-title {
+    font-size: 20px;
+    margin: 6px 12px;
+  }
+  .card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .todo-input-row {
+    margin-bottom: 16px;
+  }
+  .todoinput, .dueDate {
+    padding: 8px 10px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  .add-todo-button {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  .todo-row {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+  .todo-name {
+    font-size: 14px;
+  }
+  .todo-due {
+    font-size: 12px;
+  }
+  .delete-todo-button {
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+  .empty {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+/* Utility */
+.small { font-size: 13px; color: var(--muted); }
+.center { text-align: center; }

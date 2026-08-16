@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="todo-list-title">Todo List</h1>
+        </header>
+        <main>
+            <section class="card">
+                <div class="todo-row todo-input-row">
+                    <input type="text" onkeydown="onkeybtn(event)" class="todoinput" placeholder="Add a To-do item" required>
+                    <input type="date" onkeydown="onkeybtn(event)" class="dueDate" required>
+                    <button onclick="addTodo()" class="add-todo-button">Add</button>
+                </div>
+            </section>
+            <section id="todoListOutput">
+                <!-- Todos will be rendered here -->
+            </section>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
