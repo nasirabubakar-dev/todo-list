@@ -52,13 +52,16 @@ html, body {
 
 .todo-input-row {
   display: grid;
-  grid-template-columns: 1fr 220px 120px;
+  grid-template-columns: minmax(0, 1fr) 220px 120px;
   gap: var(--gap);
   align-items: center;
   margin-bottom: 18px;
 }
 
 .todoinput, .dueDate {
+  width: 100%;
+  min-width: 0;
+  display: block;
   background: var(--glass);
   border: 1px solid rgba(255,255,255,0.04);
   color: #e9f6ff;
@@ -93,7 +96,7 @@ html, body {
 
 .todo-row {
   display: grid;
-  grid-template-columns: 28px 1fr 180px 100px;
+  grid-template-columns: 28px minmax(0, 1fr) 180px 100px;
   gap: 12px;
   align-items: center;
   padding: 10px;
@@ -177,11 +180,11 @@ html, body {
   .todo-list-title { font-size: 28px; }
   .card { padding: 20px; }
   .todo-input-row {
-    grid-template-columns: 1fr 200px 130px;
+    grid-template-columns: minmax(0, 1fr) 200px 130px;
     gap: 12px;
   }
   .todo-row {
-    grid-template-columns: 28px 1fr 160px 110px;
+    grid-template-columns: 28px minmax(0, 1fr) 160px 110px;
     gap: 12px;
   }
 }
@@ -211,7 +214,7 @@ html, body {
   }
   .todo-row {
     display: grid;
-    grid-template-columns: 28px 1fr auto;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
     grid-template-rows: auto auto;
     gap: 10px;
     padding: 12px;
