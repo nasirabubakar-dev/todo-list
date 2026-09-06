@@ -77,14 +77,23 @@ function saveEdit() {
   renderTodoList();
 }
 
+function cancelEdit() {
+  const nameElem = document.querySelector('.todoinput');
+  const dueDateElem = document.querySelector('.dueDate');
+  const addButton = document.querySelector('.add-todo-button');
+
+  editingTodoIndex = null;
+
+  if (nameElem) nameElem.value = '';
+  if (dueDateElem) dueDateElem.value = '';
+  if (addButton) addButton.textContent = 'Add';
+}
+
 function deleteTodo(index) {
   todoList.splice(index, 1);
 
   if (editingTodoIndex === index) {
-    editingTodoIndex = null;
-    document.querySelector('.add-todo-button').textContent = 'Add';
-    document.querySelector('.todoinput').value = '';
-    document.querySelector('.dueDate').value = '';
+    cancelEdit();
   } else if (editingTodoIndex !== null && editingTodoIndex > index) {
     editingTodoIndex--;
   }
