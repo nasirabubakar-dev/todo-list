@@ -50,17 +50,20 @@ html, body {
   border: 1px solid rgba(255,255,255,0.03);
 }
 
+/* Task input layout */
 .todo-input-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px 120px;
+  grid-template-columns: minmax(0, 1fr) 180px 110px;
   gap: var(--gap);
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
   margin-bottom: 18px;
 }
 
 .todoinput, .dueDate {
   width: 100%;
   min-width: 0;
+  height: 42px;
   display: block;
   background: var(--glass);
   border: 1px solid rgba(255,255,255,0.04);
@@ -72,6 +75,10 @@ html, body {
   transition: transform .12s ease, box-shadow .12s ease, border-color .12s;
 }
 
+.todoinput {
+  min-width: 0;
+}
+
 .todoinput:focus, .dueDate:focus {
   box-shadow: 0 6px 20px rgba(0,170,255,0.12);
   border-color: rgba(0,170,255,0.28);
@@ -79,6 +86,8 @@ html, body {
 }
 
 .add-todo-button {
+  width: 100%;
+  height: 42px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   border-radius: 10px;
   padding: 10px 14px;
@@ -180,7 +189,7 @@ html, body {
   .todo-list-title { font-size: 28px; }
   .card { padding: 20px; }
   .todo-input-row {
-    grid-template-columns: minmax(0, 1fr) 200px 130px;
+    grid-template-columns: minmax(0, 1fr) 170px 105px;
     gap: 12px;
   }
   .todo-row {
@@ -205,10 +214,12 @@ html, body {
     gap: 12px;
   }
   .todoinput, .dueDate {
+    height: 42px;
     padding: 10px 12px;
     font-size: 14px;
   }
   .add-todo-button {
+    height: 42px;
     padding: 10px 24px;
     font-size: 14px;
   }
@@ -256,11 +267,13 @@ html, body {
   }
   .todo-input-row { margin-bottom: 16px; }
   .todoinput, .dueDate {
+    height: 40px;
     padding: 8px 10px;
     font-size: 13px;
     border-radius: 8px;
   }
   .add-todo-button {
+    height: 40px;
     padding: 8px 12px;
     font-size: 13px;
     border-radius: 8px;
